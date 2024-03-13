@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/vinayasharanappanavar/udacity-cicd/_apis/build/status%2FVinayaMSh.udacity-cicd?branchName=main)](https://dev.azure.com/vinayasharanappanavar/udacity-cicd/_build/latest?definitionId=8&branchName=main)
+
 # Overview
 
 This project is intended as an example/exercise project to test complete CI/CD with Azure pipelines.
