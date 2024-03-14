@@ -13,10 +13,9 @@ The detailed instructions of how to start and configure the complete pipeline us
 So, lets get started!
 
 ## Project Plan
-<TODO: Project Plan
 
-* A link to a Trello board for the project
-* A link to a spreadsheet that includes the original and final project plan>
+Trello board can be found [here](https://trello.com/invite/b/jOc8RFqQ/ATTIff73aa56ac5ab497ebc567a09ca9f6ccAAD9AD5D/udacity-cicd)
+Spreadsheet uploaded in branch in this repo
 
 ## Instructions
 
