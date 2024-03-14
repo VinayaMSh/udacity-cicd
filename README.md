@@ -23,7 +23,7 @@ So, lets get started!
 <TODO:  
 * Architectural Diagram (Shows how key parts of the system work)>
 
-<TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
+
 
 * Project running on Azure App Service
   -  This project is already deployed and can be accessed with url https://flask-ml-vs-1203.azurewebsites.net/
@@ -32,7 +32,7 @@ So, lets get started!
 
 
 
-## Deploy WebApp
+## Instructions for Deploy WebApp
 
   -  Start by cloning this repository in your Azure Cloud shell
   
@@ -52,7 +52,7 @@ So, lets get started!
         python3 -m venv ~/.myudacityrepo
         source ~/.myudacityrepo/bin/activate
         ```
-  -  Install required dependencies, lint and test the code in the created virtual environment and run the application locally
+  -  Install required dependencies, lint and test the code in the created virtual environment by executing make all command. When it is executed without any errors, run the application locally
         ```
         make all
 
@@ -60,7 +60,7 @@ So, lets get started!
         ```
         ![Screenshot-makeall](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/bcc1feb5-ed9a-4f90-ac4f-0972dae71611)
 
-  -   Once you have the output like below, open a new cloud shell session and execute the make_prediction.sh and it should   display the prediction
+  -   Once you have the output like below, open a new cloud shell session and execute the make_prediction.sh and it should display the prediction
        ```
         cd ~/udacity-cicd
 
@@ -73,31 +73,83 @@ So, lets get started!
 
   ### Deploy app in Azure
       
+  -  Give the name of the flask webapp of your choice to the --name parameter
   ```
+  cd ~/udacity-cicd
+
   az webapp up --sku B1 --name flask-ml-vs-1203 --resource-group udacity-test
   ```
-  Give the name of the flask webapp of your choice to the --name parameter 
+   
+  -  Once the webapp is successfully deployed, one must see similar output on cloud shell
+  
+  ![Screenshot-az-webapp-up](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/b5e35e08-1e89-4b6d-b116-a8d32ff7ed33)
 
-* Passing tests that are displayed after running the `make all` command from the `Makefile`
 
-* Output of a test run
+  -  Tests can be executed either by command `make test` or  `make all` command from the `Makefile`
 
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+  
+  ![Screenshot-makeall](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/0e02688a-93c5-4410-942b-0311b705e045)
 
-* Running Azure App Service from Azure Pipelines automatic deployment
+### Setup Azure CICD pieline
 
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
+  After successful deploy of the project, create Azure Pipeline by following the mentioned documentation.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+
+  After running Azure App Service from Azure Pipelines automatic deployment - the build and deploy part in the pipeline must be executed without any errors
+  
+  ![Screenshot-AzurePipeline](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/6adab905-4613-405a-8020-8ae12ea38bfa)
+
+  Clicking on the pipeline, shows all the activities done in the pipeline
+
+  ![image](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/a7acaa8c-a6cd-4e60-9660-b82badc78363)
+
+
+### Successful prediction from deployed flask app in Azure Cloud Shell.
+   
+   Now, update the url with your webapp url in make_predict_azure_app.sh present in the repository from your cloud shell. Once updated, run the script
+  
+  ```
+  ./make_predict_azure_app.sh
+  ```
+
+  Output looks somelike thing
+
+  ![Screenshot-makepredict_azure](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/6902c978-13a3-4217-90cb-0738e848f606)
+
 The output should look similar to this:
 
-```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
-```
 
-* Output of streamed log files from deployed application
+### Output of streamed log files from deployed application
 
-> 
+  You can see  the logs in the browser with the url https://flask-ml-vs-1203.scm.azurewebsites.net/api/logs/docker
+  
+
+  ![Screenshot-webapp-log](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/b3c3de94-e842-4871-b685-69b050c47918)
+
+### Load test with locust
+
+  For testing with locust locally (not on Azure Cloud Shell)
+
+  -  Install locust in your command prompt on Windows machine
+    
+     ```
+      pip install locust
+
+      locust --version
+     ```
+     
+  -  Once installed, copy the locustfile.py from this repository locally and execute the below command
+
+      ```
+      locust -f <path to yout loustfile.py> -H https://flask-ml-vs-1203.azurewebsites.net/
+     ```
+  - Open browser and access  http://localhost:8089
+ 
+    ![Screenshot-locustUI](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/7b118d83-a5b9-43e3-bf02-7d0f64b1113b)
+
+    Try with different inputs , and control the output
+
+    
+    ![Screenshot-locustUI-Tabs](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/4e62d35c-d6cf-4c80-8952-69a77e27bd44)
 
 ## Enhancements
 
