@@ -14,20 +14,24 @@ So, lets get started!
 
 ## Project Plan
 
-Trello board can be found [here](https://trello.com/invite/b/jOc8RFqQ/ATTIff73aa56ac5ab497ebc567a09ca9f6ccAAD9AD5D/udacity-cicd)
-Spreadsheet uploaded in branch in this repo
+Trello board can be found [here](https://trello.com/invite/b/jOc8RFqQ/ATTIff73aa56ac5ab497ebc567a09ca9f6ccAAD9AD5D/udacity-cicd)  [Screenshot](https://github.com/VinayaMSh/udacity-cicd/blob/52b511c6693bc6e2989c1cb8f5f3cfbd84e96d7f/Screenshot-Trello.png)
+
+
+Spreadsheet uploaded in branch **docs** in this repo [here](https://github.com/VinayaMSh/udacity-cicd/blob/6f93c75a8fde27067d9f9f752de37504ac12a952/project-management-template.xlsx)
 
 ## Instructions
 
-<TODO:  
-* Architectural Diagram (Shows how key parts of the system work)>
+ 
+* High level architectural diagram
+
+
+![Screenshot-ArchitecturalDiagram](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/8d7157f7-e69a-494c-a4b2-d74105e4a746)
 
 
 
 * Project running on Azure App Service
   -  This project is already deployed and can be accessed with url https://flask-ml-vs-1203.azurewebsites.net/
     ![image](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/0d89fbe5-ce2c-46bf-aded-af84c44f40ca)
-
 
 
 
@@ -88,6 +92,11 @@ Spreadsheet uploaded in branch in this repo
 
   
   ![Screenshot-makeall](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/0e02688a-93c5-4410-942b-0311b705e045)
+
+### Setup GitHub Actions
+
+
+![Screenshot-GitHubActions](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/33f87a6a-c1be-4f1c-a82e-adbf77949cdb)
 
 ### Setup Azure CICD pieline
 
@@ -152,7 +161,9 @@ The output should look similar to this:
 
 ## Enhancements
 
-<TODO: A short description of how to improve the project in the future>
+At present for setting up the Azure pipeline, we do many muail steps like VM creation, installing requirements and so on.
+It is a good chance that we can automate tasks there to provide Infrastructure via Code.
+Furthermore as an enhancement for generating alerts in defined cases can also be incorporated
 
 ## Demo 
 
