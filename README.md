@@ -31,6 +31,7 @@ Spreadsheet uploaded in branch **docs** in this repo [here](https://github.com/V
 
 * Project running on Azure App Service
   -  This project is already deployed and can be accessed with url https://flask-ml-vs-1203.azurewebsites.net/
+
     ![image](https://github.com/VinayaMSh/udacity-cicd/assets/37274214/0d89fbe5-ce2c-46bf-aded-af84c44f40ca)
 
 
